@@ -1,0 +1,60 @@
+﻿@using VUI.classes;
+    @using umbraco.MacroEngines;
+    @using umbraco.cms.businesslogic.member;
+    @{    
+      Member c = VUIfunctions.CurrentUser();
+      
+      string user_status = VUIfunctions.VUI_USERTYPE_NONE;
+      
+      if(c != null)
+      {
+          user_status = VUIfunctions.MemberVUIStatus(c);
+      }
+        
+      
+    <nav class="top ui-hide-from-print" >
+      <ul>
+        <li><a href="/vui/screenshots/">SCREENSHOTS</a>
+ @*          <ul class="ui-nav-level-1">
+      
+            <li class="ui-nav-platform"><a href="/vui/screenshots/All" rel="platform-type" data-id="All" data-platform="All" class="platform-type vui-platform">All</a>
+           
+          </li>
+     {
+          List<DynamicNode> platforms = VUIfunctions.PlatformList();
+          foreach(DynamicNode platform in platforms)
+          {
+            
+            string platformname = @platform.Name.Replace(" ","-");
+    
+            <li class="ui-nav-platform"><a href="/vui/@platformname/screenshots" rel="platform-type"  data-platform="@platform.Name"  data-id="@platform.Id" class="platform-type vui-platform">@platform.Name</a>
+         
+            </li>
+          }
+      }
+            <li class="ui-nav-platform"><a href="/vui/Tablet" rel="platform-type" class="platform-type vui-platform">Tablet</a></li>
+            <li class="ui-nav-platform"><a href="/vui/screenshots/Web" rel="platform-type" class="platform-type vui-platform">Web</a></li>
+
+            </ul>*@
+        </li>
+        <li><a href="/vui/benchmarking">BENCHMARKING</a></li>
+        <li><a href="/vui/best-practice-guides">BEST PRACTICE GUIDES</a></li>
+        @*<li><a href="/vui/research">RESEARCH</a></li>*@
+
+      @if (!user_status.Equals(VUIfunctions.VUI_USERTYPE_NONE) && !user_status.Equals(VUIfunctions.VUI_USERTYPE_REGISTRANT))
+      {
+        <li><a href="/vui/vuiadmin">ACCOUNT ADMIN</a></li>
+      }
+      else
+      {
+        <li class="subscribe"><a href="@VUIfunctions.VUI_subscribe_page">SUBSCRIBE</a>
+          <ul class="ui-nav-level-1">
+            <li><a href="/vui/why-join-the-vui-library">Why Subscribe</a></li>
+            <li><a href="@VUIfunctions.VUI_subscribe_page">Price Plans</a></li>
+          </ul>
+        </li>
+      }
+            <li class="ui-nav-contact"><a href="/vui/why-join-the-vui-library"><strong>Questions?</strong></a><a href="/contact-us">Email us or call +44 (0)20 7286 4224</a></li>
+      </ul>
+    </nav>
+    }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-16"?>
+<dictionary>
+  <item>
+    <key>
+      <EXAFields>Name</EXAFields>
+    </key>
+    <value><![CDATA[BITETOS-ASUS]]></value>
+  </item>
+  <item>
+    <key>
+      <EXAFields>Created</EXAFields>
+    </key>
+    <value><![CDATA[2014-01-14 10:00:50.497]]></value>
+  </item>
+  <item>
+    <key>
+      <EXAFields>Updated</EXAFields>
+    </key>
+    <value><![CDATA[2014-02-13 12:00:38.771]]></value>
+  </item>
+  <item>
+    <key>
+      <EXAFields>IsMaster</EXAFields>
+    </key>
+    <value><![CDATA[True]]></value>
+  </item>
+</dictionary>

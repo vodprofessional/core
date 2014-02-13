@@ -1,0 +1,9 @@
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\VodProUmbraco.dll
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\VodProUmbraco.pdb
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\log4net.dll
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\VODPro.dll
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\VODPro.pdb
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\bin\log4net.xml
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\obj\Release\VodProUmbraco.csprojResolveAssemblyReference.cache
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\obj\Release\VodProUmbraco.dll
+D:\Dev\VODPRO\VodProUmbraco\VodProUmbraco\obj\Release\VodProUmbraco.pdb

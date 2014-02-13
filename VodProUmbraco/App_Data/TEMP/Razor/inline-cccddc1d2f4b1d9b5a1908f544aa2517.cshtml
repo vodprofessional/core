@@ -1,0 +1,47 @@
+﻿@using VUI.classes;
+@using umbraco.cms.businesslogic.member;
+@{  
+
+  if (Request.Cookies["show-registration-message"] != null)
+  {
+      if (Request.Cookies["show-registration-message"].Value.Equals("YES"))
+      {
+        <div class="ui-member-message registration">
+          <strong>Thanks for registering!</strong>
+          <div>You can now read selected articles in the VUI Library. Subscribe today and see screenshots and benchmarking data from over 150 global video services.</div>
+        </div>
+      }
+      Response.Cookies["show-registration-message"].Value = "";
+      Response.Cookies.Remove("show-registration-message");
+  }
+  
+  
+  Member c = VUIfunctions.CurrentUser();
+  
+  string user_status = VUIfunctions.VUI_USERTYPE_NONE;
+  
+  if(c != null)
+  {
+      user_status = VUIfunctions.MemberVUIStatus(c);
+  }
+  
+  if (user_status.Equals(VUIfunctions.VUI_USERTYPE_ADMIN_NOTPAID))
+  {
+    <div class="ui-member-message">
+      <strong>Your Payment has not completed</strong>. You need to contact us to get full access to the VUI Library
+    </div>
+  }
+  if (user_status.Equals(VUIfunctions.VUI_USERTYPE_USER_NOTPAID))
+  {
+    Member admin = VUIfunctions.GetVUIAdminForCurrentUser();
+    <div class="ui-member-message">
+        <strong>Your Company's Payment has not completed.</strong>
+        You should ask your administrator
+      @if(admin != null)
+      {
+        @:, @admin.getProperty("fullName").Value
+      }  
+        to contact us
+    </div>
+  }
+}

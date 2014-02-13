@@ -1,0 +1,21 @@
+﻿@using VUI.classes;
+@using VUI.VUI3.classes;
+@using umbraco.cms.businesslogic.member;
+@using System.Web;
+@{
+    VUIUser u = VUI3Utility.GetUser();
+    Member c = u.Member;
+
+    string cssclass = "second ";
+  
+  @* NOT LOGGED IN STATE *@
+    if (u.UserStatus.Equals(VUIfunctions.VUI_USERTYPE_NONE))
+    {
+      cssclass = "home";
+    }
+    else
+    {
+      cssclass += "loggedin";
+    }
+    @: @Html.Raw(VUI3Utility.PageBody(cssclass))
+}

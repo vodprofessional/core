@@ -1,0 +1,40 @@
+﻿<ul class="nav">
+@{
+  
+  umbraco.cms.businesslogic.template.Template t = new umbraco.cms.businesslogic.template.Template(Model.template);
+  
+  <input type="hidden" name="jklj" value="@t.Alias" />
+  
+  var level = 2;
+  var currentPage = Model;
+  while (@currentPage.Level > @level-1)
+  { 
+    currentPage = @currentPage.Parent; 
+  }
+  /* .Where("umbracoNaviHide") */
+  <li class="current">
+    <a class="navigation" href="/news">NEWS</a>
+  </li>
+  foreach(var page in @currentPage.Children.Where("nodeTypeAlias=\"vodProSection\"").Where("hideFromNavigation=false").OrderBy("navigationSortOrder")) 
+  {
+    if (umbraco.library.HasAccess(@page.Id,@page.Path))
+    {
+      if(@page.Level == @level)
+      {
+        if(@page.Id == @currentPage.Id)
+        {
+          <li class="current">
+           <a class="navigation" href="@page.Url">@page.Name</a>
+          </li>
+        }
+        else
+        {
+          <li>
+           <a class="navigation" href="@page.Url">@page.Name</a>
+          </li>
+        }
+      }
+    }
+  else { <li>No access</li> }
+  }
+}
